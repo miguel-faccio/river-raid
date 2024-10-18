@@ -1,0 +1,114 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100vh; /* Ocupar toda a altura da janela */
+    overflow: hidden;
+}
+
+#game-container {
+    display: flex; /* Usar flexbox para colocar as divs lado a lado */
+    height: 100%; /* Ocupar toda a altura disponível */
+}
+
+#left-side, #right-side {
+    background-color: green; /* Cor verde para as bordas */
+    width: 25%; /* Largura das áreas verdes */
+}
+
+#river {
+    background-color: #87CEEB; /* Cor azul para o rio */
+    width: 50%; /* Largura da área do rio */
+}
+
+#game-footer {
+    background-color: gray; /* Cor do footer */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px; /* Espaçamento interno */
+    height: 50px; /* Altura do footer */
+}
+
+#score, #fuel {
+    color: yellow; /* Cor do texto */
+    font-weight: bold; /* Texto em negrito */
+    text-transform: uppercase; /* Texto em caixa alta */
+}
+#plane {
+    position: absolute; /* Para permitir a movimentação livre */
+    bottom: 50px; /* Posição acima do footer */
+    left: 50%; /* Centralizado horizontalmente */
+    transform: translateX(-50%); /* Para centralizar corretamente */
+    width: 55px; /* Largura do avião */
+    height: 70px; /* Altura do avião */
+    background-image: url('../images/airplane.png'); /* Caminho da imagem do avião */
+    background-size: cover; /* Para cobrir toda a div */
+    pointer-events: none; /* Para não interferir em cliques */
+
+}
+.projectile {
+    position: absolute;
+    width: 5px;  /* Largura do projetil */
+    height: 20px; /* Altura do projetil */
+    background-color: red; /* Cor do projetil */
+    border-radius: 2px; /* Cantos arredondados, opcional */
+}
+
+/* Nuvens já existentes */
+.cloud {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 10px;
+    /*box-shadow: 0px -10px 60px 1px black;*/
+    top: -150px;
+    animation: moveCloud 5s linear infinite;
+}
+
+#cloud1 {
+    left: 20%;
+    animation-duration: 6s;
+}
+
+#cloud2 {
+    left: 50%;
+    animation-duration: 4s;
+}
+
+#cloud3 {
+    left: 80%;
+    animation-duration: 7s;
+}
+
+/* Novas nuvens */
+#cloud4 {
+    left: 10%; /* Posição mais à esquerda */
+    animation-duration: 5.5s; /* Animação mais rápida */
+}
+
+#cloud5 {
+    left: 35%; /* Posição central-alinhada */
+    animation-duration: 6.5s; /* Velocidade média */
+}
+
+#cloud6 {
+    left: 70%; /* Posição mais à direita */
+    animation-duration: 5s; /* Velocidade mais rápida */
+}
+
+@keyframes moveCloud {
+    from {
+        top: -150px;
+    }
+    to {
+        top: 100%;
+    }
+}
+
